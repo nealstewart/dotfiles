@@ -51,8 +51,6 @@ set expandtab
 set shiftwidth=2
 
 " default sizes
-set columns=100
-set lines=35
 set colorcolumn=80
 
 " fold method
