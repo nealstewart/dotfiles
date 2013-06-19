@@ -10,12 +10,13 @@ Bundle 'scrooloose/syntastic'
 Bundle 'scrooloose/nerdtree'
 Bundle 'kien/ctrlp.vim'
 Bundle 'sickill/vim-pasta'
-Bundle 'Lokaltog/vim-powerline' 
+Bundle 'Lokaltog/vim-powerline'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-commentary'
 Bundle 'mileszs/ack.vim'
 Bundle 'Raimondi/delimitMate'
 Bundle 'ervandew/supertab'
+Bundle 'plasticboy/vim-markdown'
 
 let g:ctrlp_custom_ignore = {
       \ 'dir': '\v[\/](haproxy-1.4.20|node_modules|.git|yui-compressor)$',
@@ -34,8 +35,9 @@ let b:syntastic_c_cflags = ' -std=c99'
 
 " syntax highlighting
 syntax on
-colorscheme corporation 
-set guifont=Inconsolata:h16
+colorscheme Tomorrow-Night-Eighties
+
+set guifont=Inconsolata-dz\ for\ Powerline:h12
 
 " lots of colors!
 set t_Co=256
@@ -56,8 +58,8 @@ set colorcolumn=80
 " fold method
 set foldmethod=syntax
 set foldnestmax=4      "deepest fold is 10 levels"
-set nofoldenable 
-set nowrap 
+set nofoldenable
+set nowrap
 
 " show matching braces, brackets, etc
 set showmatch
@@ -78,3 +80,12 @@ set mouse=a
 " fixes backspace
 set backspace=indent,eol,start
 
+fun! <SID>StripTrailingWhitespaces()
+  let l = line(".")
+  let c = col(".")
+  %s/\s\+$//e
+  call cursor(l, c)
+endfun
+autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
+
+au BufRead,BufNewFile *.md set filetype=markdown
