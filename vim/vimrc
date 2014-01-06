@@ -13,10 +13,15 @@ Bundle 'sickill/vim-pasta'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-commentary'
+Bundle 'tpope/vim-markdown'
 Bundle 'mileszs/ack.vim'
 Bundle 'Raimondi/delimitMate'
 Bundle 'ervandew/supertab'
 Bundle 'plasticboy/vim-markdown'
+Bundle 'airblade/vim-gitgutter'
+Bundle 'helino/vim-json'
+
+map <C-n> :NERDTreeToggle<CR>
 
 let g:ctrlp_custom_ignore = {
       \ 'dir': '\v[\/](haproxy-1.4.20|node_modules|.git|yui-compressor)$',
@@ -32,6 +37,8 @@ map <F5> :SyntasticToggleMode<CR>:redraw!<CR>
 let g:syntastic_c_check_header = 1
 let g:syntastic_c_auto_refresh_includes = 1
 let b:syntastic_c_cflags = ' -std=c99'
+
+au BufRead,BufNewFile *.json set filetype=json
 
 " syntax highlighting
 syntax on
@@ -70,6 +77,10 @@ set smartcase
 set hlsearch
 " search character by character
 set incsearch
+
+" Better file completion
+set wildmenu
+set wildmode=list:longest
 
 " turn on line numbering
 set nu
