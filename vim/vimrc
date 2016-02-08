@@ -1,25 +1,43 @@
 set nocompatible               " be iMproved
 filetype off                   " required!
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
-" Bundles
-Bundle 'airblade/vim-rooter'
-Bundle 'scrooloose/syntastic'
-Bundle 'scrooloose/nerdtree'
-Bundle 'kien/ctrlp.vim'
-Bundle 'sickill/vim-pasta'
-Bundle 'Lokaltog/vim-powerline'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-commentary'
-Bundle 'tpope/vim-markdown'
-Bundle 'mileszs/ack.vim'
-Bundle 'Raimondi/delimitMate'
-Bundle 'ervandew/supertab'
-Bundle 'plasticboy/vim-markdown'
-Bundle 'airblade/vim-gitgutter'
-Bundle 'helino/vim-json'
+" Vundle Plugins
+Plugin 'airblade/vim-rooter'
+Plugin 'scrooloose/syntastic'
+Plugin 'scrooloose/nerdtree'
+Plugin 'kien/ctrlp.vim'
+Plugin 'sickill/vim-pasta'
+Plugin 'Lokaltog/vim-powerline'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-commentary'
+Plugin 'mileszs/ack.vim'
+Plugin 'Raimondi/delimitMate'
+Plugin 'ervandew/supertab'
+Plugin 'plasticboy/vim-markdown'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'helino/vim-json'
+Plugin 'w0ng/vim-hybrid'
+Plugin 'flazz/vim-colorschemes'
+Plugin 'pangloss/vim-javascript'
+Plugin 'puppetlabs/puppet-syntax-vim'
+Plugin 'mxw/vim-jsx'
+Plugin 'fatih/vim-go'
+Plugin 'groenewege/vim-less'
+Plugin 'editorconfig/editorconfig-vim'
+Plugin 'sophacles/vim-processing'
+Plugin 'tpope/vim-obsession'
+Plugin 'rking/ag.vim'
+Plugin 'othree/javascript-libraries-syntax.vim'
+Plugin 'burnettk/vim-angular'
+Plugin 'dkprice/vim-easygrep'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+
+filetype plugin indent on    " required
 
 map <C-n> :NERDTreeToggle<CR>
 
@@ -39,24 +57,33 @@ let g:syntastic_c_auto_refresh_includes = 1
 let b:syntastic_c_cflags = ' -std=c99'
 
 au BufRead,BufNewFile *.json set filetype=json
+au BufRead,BufNewFile .jshintrc set filetype=javascript
 
 " syntax highlighting
 syntax on
-colorscheme Tomorrow-Night-Eighties
+colorscheme monokai
 
-set guifont=Inconsolata-dz\ for\ Powerline:h12
+set guifont=Inconsolata-dz\ for\ Powerline:h14
 
 " lots of colors!
 set t_Co=256
+
+set noswapfile
 
 " indenting
 filetype indent on
 set autoindent
 
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
+set smarttab
+
 " tabs should be two spaces always
 set ts=2
 set smarttab
-set expandtab
+"set expandtab
+set noexpandtab
 set shiftwidth=2
 
 " default sizes
@@ -100,3 +127,4 @@ endfun
 autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
 
 au BufRead,BufNewFile *.md set filetype=markdown
+autocmd BufWritePre *.py :%s/\s\+$//e
