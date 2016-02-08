@@ -1,9 +1,8 @@
 [user]
   name = Neal Stewart
-  email = neal@goinstant.com
+  email = nes@tradeshift.com
 [github]
   user = nealstewart
-  token = ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAzvYoYDKx7uHXb+2WqoyvtRXjx5ci/PFsLgzOK6QD3SCyTB3WYfKS4NX0xC+KnzWGocZgaAVVupZUvG/lCQ6zLbC0XqNcE5aV1RbkyO4KzE2KIoWZA2/2dVxhV7fXBWAWb7ZYZLNlMLaBtb2XfLRWPqs3nwqYsxtjyCK6fytOVzl4hfgy+xFy8E1Mh4gESxpswNwjpkASqpJJmZPct4zK2VNhvo/L/ce5flkmMcLmh7IcOLnrNamhcrwufr7VAJzuDT11vuBj2DA6QHras0F0UuVsxFIk9H+t035M0HvUSlBMagItYzm+nc4C3124FbUSSXR5gWsokHG5VhbU/cMhlQ== neal.a.m.stewart@gmail.com
 [merge]
   tool = opendiff
   conflictstyle = diff3
@@ -27,5 +26,6 @@
   editor = vim
   excludesfile = /Users/neal/.gitignore
   commentchar = $
+	precomposeunicode = true
 [push]
 	default = simple
